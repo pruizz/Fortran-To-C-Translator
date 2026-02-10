@@ -16,8 +16,9 @@ public class TranslatorParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		LISTA=1, CODEBLOCK=2, LINKOK=3, LINKERR=4, H1=5, H2=6, H3=7, H4=8, H5=9, 
-		H6=10, BLOCKQUOTE=11, LINE=12, TEXT=13, BOLD=14, ITAL=15, LN=16, LNCONTENT=17;
+		PROGRAM=1, END=2, INTERFACE=3, SUBROUTINE=4, FUNCTION=5, INTEGER=6, REAL=7, 
+		CHARACTER=8, PARAMETER=9, INTENT=10, IN=11, OUT=12, INOUT=13, CALL=14, 
+		IDENT=15, NUM_INT_CONST=16, NUM_REAL_CONST=17, LN=18;
 	public static final int
 		RULE_axioma = 0;
 	private static String[] makeRuleNames() {
@@ -29,15 +30,17 @@ public class TranslatorParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, null, null, null, null, null, null, null, null, null, null, null, 
-			null, null, null, null, "'\\n'"
+			null, "'PROGRAM'", "'END'", "'INTERFACE'", "'SUBROUTINE'", "'FUNCTION'", 
+			"'INTEGER'", "'REAL'", "'CHARACTER'", "'PARAMETER'", "'INTENT'", "'IN'", 
+			"'OUT'", "'INOUT'", "'CALL'", null, null, null, "'\\n'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, "LISTA", "CODEBLOCK", "LINKOK", "LINKERR", "H1", "H2", "H3", "H4", 
-			"H5", "H6", "BLOCKQUOTE", "LINE", "TEXT", "BOLD", "ITAL", "LN", "LNCONTENT"
+			null, "PROGRAM", "END", "INTERFACE", "SUBROUTINE", "FUNCTION", "INTEGER", 
+			"REAL", "CHARACTER", "PARAMETER", "INTENT", "IN", "OUT", "INOUT", "CALL", 
+			"IDENT", "NUM_INT_CONST", "NUM_REAL_CONST", "LN"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -93,69 +96,17 @@ public class TranslatorParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class AxiomaContext extends ParserRuleContext {
-		public List<TerminalNode> H1() { return getTokens(TranslatorParser.H1); }
-		public TerminalNode H1(int i) {
-			return getToken(TranslatorParser.H1, i);
+		public List<TerminalNode> IDENT() { return getTokens(TranslatorParser.IDENT); }
+		public TerminalNode IDENT(int i) {
+			return getToken(TranslatorParser.IDENT, i);
 		}
-		public List<TerminalNode> H2() { return getTokens(TranslatorParser.H2); }
-		public TerminalNode H2(int i) {
-			return getToken(TranslatorParser.H2, i);
+		public List<TerminalNode> NUM_INT_CONST() { return getTokens(TranslatorParser.NUM_INT_CONST); }
+		public TerminalNode NUM_INT_CONST(int i) {
+			return getToken(TranslatorParser.NUM_INT_CONST, i);
 		}
-		public List<TerminalNode> H3() { return getTokens(TranslatorParser.H3); }
-		public TerminalNode H3(int i) {
-			return getToken(TranslatorParser.H3, i);
-		}
-		public List<TerminalNode> H4() { return getTokens(TranslatorParser.H4); }
-		public TerminalNode H4(int i) {
-			return getToken(TranslatorParser.H4, i);
-		}
-		public List<TerminalNode> H5() { return getTokens(TranslatorParser.H5); }
-		public TerminalNode H5(int i) {
-			return getToken(TranslatorParser.H5, i);
-		}
-		public List<TerminalNode> H6() { return getTokens(TranslatorParser.H6); }
-		public TerminalNode H6(int i) {
-			return getToken(TranslatorParser.H6, i);
-		}
-		public List<TerminalNode> BOLD() { return getTokens(TranslatorParser.BOLD); }
-		public TerminalNode BOLD(int i) {
-			return getToken(TranslatorParser.BOLD, i);
-		}
-		public List<TerminalNode> ITAL() { return getTokens(TranslatorParser.ITAL); }
-		public TerminalNode ITAL(int i) {
-			return getToken(TranslatorParser.ITAL, i);
-		}
-		public List<TerminalNode> LINE() { return getTokens(TranslatorParser.LINE); }
-		public TerminalNode LINE(int i) {
-			return getToken(TranslatorParser.LINE, i);
-		}
-		public List<TerminalNode> BLOCKQUOTE() { return getTokens(TranslatorParser.BLOCKQUOTE); }
-		public TerminalNode BLOCKQUOTE(int i) {
-			return getToken(TranslatorParser.BLOCKQUOTE, i);
-		}
-		public List<TerminalNode> LN() { return getTokens(TranslatorParser.LN); }
-		public TerminalNode LN(int i) {
-			return getToken(TranslatorParser.LN, i);
-		}
-		public List<TerminalNode> TEXT() { return getTokens(TranslatorParser.TEXT); }
-		public TerminalNode TEXT(int i) {
-			return getToken(TranslatorParser.TEXT, i);
-		}
-		public List<TerminalNode> LINKOK() { return getTokens(TranslatorParser.LINKOK); }
-		public TerminalNode LINKOK(int i) {
-			return getToken(TranslatorParser.LINKOK, i);
-		}
-		public List<TerminalNode> LINKERR() { return getTokens(TranslatorParser.LINKERR); }
-		public TerminalNode LINKERR(int i) {
-			return getToken(TranslatorParser.LINKERR, i);
-		}
-		public List<TerminalNode> CODEBLOCK() { return getTokens(TranslatorParser.CODEBLOCK); }
-		public TerminalNode CODEBLOCK(int i) {
-			return getToken(TranslatorParser.CODEBLOCK, i);
-		}
-		public List<TerminalNode> LISTA() { return getTokens(TranslatorParser.LISTA); }
-		public TerminalNode LISTA(int i) {
-			return getToken(TranslatorParser.LISTA, i);
+		public List<TerminalNode> NUM_REAL_CONST() { return getTokens(TranslatorParser.NUM_REAL_CONST); }
+		public TerminalNode NUM_REAL_CONST(int i) {
+			return getToken(TranslatorParser.NUM_REAL_CONST, i);
 		}
 		public AxiomaContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -191,7 +142,7 @@ public class TranslatorParser extends Parser {
 				{
 				setState(2);
 				_la = _input.LA(1);
-				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 131070L) != 0)) ) {
+				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 229376L) != 0)) ) {
 				_errHandler.recoverInline(this);
 				}
 				else {
@@ -204,7 +155,7 @@ public class TranslatorParser extends Parser {
 				setState(5); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 131070L) != 0) );
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 229376L) != 0) );
 			}
 		}
 		catch (RecognitionException re) {
@@ -219,9 +170,9 @@ public class TranslatorParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\u0011\b\u0002\u0000\u0007\u0000\u0001\u0000\u0004\u0000\u0004"+
+		"\u0004\u0001\u0012\b\u0002\u0000\u0007\u0000\u0001\u0000\u0004\u0000\u0004"+
 		"\b\u0000\u000b\u0000\f\u0000\u0005\u0001\u0000\u0000\u0000\u0001\u0000"+
-		"\u0000\u0001\u0001\u0000\u0001\u0010\u0007\u0000\u0003\u0001\u0000\u0000"+
+		"\u0000\u0001\u0001\u0000\u000f\u0011\u0007\u0000\u0003\u0001\u0000\u0000"+
 		"\u0000\u0002\u0004\u0007\u0000\u0000\u0000\u0003\u0002\u0001\u0000\u0000"+
 		"\u0000\u0004\u0005\u0001\u0000\u0000\u0000\u0005\u0003\u0001\u0000\u0000"+
 		"\u0000\u0005\u0006\u0001\u0000\u0000\u0000\u0006\u0001\u0001\u0000\u0000"+

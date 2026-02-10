@@ -1,46 +1,48 @@
 token literal names:
 null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
+'PROGRAM'
+'END'
+'INTERFACE'
+'SUBROUTINE'
+'FUNCTION'
+'INTEGER'
+'REAL'
+'CHARACTER'
+'PARAMETER'
+'INTENT'
+'IN'
+'OUT'
+'INOUT'
+'CALL'
 null
 null
 null
 '\n'
-null
 
 token symbolic names:
 null
-LISTA
-CODEBLOCK
-LINKOK
-LINKERR
-H1
-H2
-H3
-H4
-H5
-H6
-BLOCKQUOTE
-LINE
-TEXT
-BOLD
-ITAL
+PROGRAM
+END
+INTERFACE
+SUBROUTINE
+FUNCTION
+INTEGER
+REAL
+CHARACTER
+PARAMETER
+INTENT
+IN
+OUT
+INOUT
+CALL
+IDENT
+NUM_INT_CONST
+NUM_REAL_CONST
 LN
-LNCONTENT
 
 rule names:
 axioma
 
 
 atn:
-[4, 1, 17, 8, 2, 0, 7, 0, 1, 0, 4, 0, 4, 8, 0, 11, 0, 12, 0, 5, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 16, 7, 0, 3, 1, 0, 0, 0, 2, 4, 7, 0, 0, 0, 3, 2, 1, 0, 0, 0, 4, 5, 1, 0, 0, 0, 5, 3, 1, 0, 0, 0, 5, 6, 1, 0, 0, 0, 6, 1, 1, 0, 0, 0, 1, 5]
+[4, 1, 18, 8, 2, 0, 7, 0, 1, 0, 4, 0, 4, 8, 0, 11, 0, 12, 0, 5, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 15, 17, 7, 0, 3, 1, 0, 0, 0, 2, 4, 7, 0, 0, 0, 3, 2, 1, 0, 0, 0, 4, 5, 1, 0, 0, 0, 5, 3, 1, 0, 0, 0, 5, 6, 1, 0, 0, 0, 6, 1, 1, 0, 0, 0, 1, 5]
