@@ -1,4 +1,4 @@
-// Generated from /Users/zskyh/university/third-year/second-term/procesadores/Fortran-To-C-Translator/fortranTranslator/src/Translator.g4 by ANTLR 4.13.2
+// Generated from C:/Users/cmhug/OneDrive/Escritorio/PL_Practica_ANTLR/Fortran-To-C-Translator/fortranTranslator/src/Translator.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**

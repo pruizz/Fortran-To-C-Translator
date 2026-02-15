@@ -1,4 +1,4 @@
-// Generated from /Users/zskyh/university/third-year/second-term/procesadores/Fortran-To-C-Translator/fortranTranslator/src/Translator.g4 by ANTLR 4.13.2
+// Generated from C:/Users/cmhug/OneDrive/Escritorio/PL_Practica_ANTLR/Fortran-To-C-Translator/fortranTranslator/src/Translator.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -18,7 +18,8 @@ public class TranslatorParser extends Parser {
 	public static final int
 		PROGRAM=1, END=2, INTERFACE=3, SUBROUTINE=4, FUNCTION=5, INTEGER=6, REAL=7, 
 		CHARACTER=8, PARAMETER=9, INTENT=10, IN=11, OUT=12, INOUT=13, CALL=14, 
-		IDENT=15, NUM_INT_CONST=16, NUM_REAL_CONST=17, LN=18;
+		STRING_CONST=15, IDENT=16, NUM_REAL_CONST=17, NUM_INT_CONST=18, COMMENT=19, 
+		LN=20, WS=21;
 	public static final int
 		RULE_axioma = 0;
 	private static String[] makeRuleNames() {
@@ -32,7 +33,7 @@ public class TranslatorParser extends Parser {
 		return new String[] {
 			null, "'PROGRAM'", "'END'", "'INTERFACE'", "'SUBROUTINE'", "'FUNCTION'", 
 			"'INTEGER'", "'REAL'", "'CHARACTER'", "'PARAMETER'", "'INTENT'", "'IN'", 
-			"'OUT'", "'INOUT'", "'CALL'", null, null, null, "'\\n'"
+			"'OUT'", "'INOUT'", "'CALL'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
@@ -40,7 +41,8 @@ public class TranslatorParser extends Parser {
 		return new String[] {
 			null, "PROGRAM", "END", "INTERFACE", "SUBROUTINE", "FUNCTION", "INTEGER", 
 			"REAL", "CHARACTER", "PARAMETER", "INTENT", "IN", "OUT", "INOUT", "CALL", 
-			"IDENT", "NUM_INT_CONST", "NUM_REAL_CONST", "LN"
+			"STRING_CONST", "IDENT", "NUM_REAL_CONST", "NUM_INT_CONST", "COMMENT", 
+			"LN", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -108,6 +110,22 @@ public class TranslatorParser extends Parser {
 		public TerminalNode NUM_REAL_CONST(int i) {
 			return getToken(TranslatorParser.NUM_REAL_CONST, i);
 		}
+		public List<TerminalNode> COMMENT() { return getTokens(TranslatorParser.COMMENT); }
+		public TerminalNode COMMENT(int i) {
+			return getToken(TranslatorParser.COMMENT, i);
+		}
+		public List<TerminalNode> PROGRAM() { return getTokens(TranslatorParser.PROGRAM); }
+		public TerminalNode PROGRAM(int i) {
+			return getToken(TranslatorParser.PROGRAM, i);
+		}
+		public List<TerminalNode> END() { return getTokens(TranslatorParser.END); }
+		public TerminalNode END(int i) {
+			return getToken(TranslatorParser.END, i);
+		}
+		public List<TerminalNode> LN() { return getTokens(TranslatorParser.LN); }
+		public TerminalNode LN(int i) {
+			return getToken(TranslatorParser.LN, i);
+		}
 		public AxiomaContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -142,7 +160,7 @@ public class TranslatorParser extends Parser {
 				{
 				setState(2);
 				_la = _input.LA(1);
-				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 229376L) != 0)) ) {
+				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 2031622L) != 0)) ) {
 				_errHandler.recoverInline(this);
 				}
 				else {
@@ -155,7 +173,7 @@ public class TranslatorParser extends Parser {
 				setState(5); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 229376L) != 0) );
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 2031622L) != 0) );
 			}
 		}
 		catch (RecognitionException re) {
@@ -170,13 +188,13 @@ public class TranslatorParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\u0012\b\u0002\u0000\u0007\u0000\u0001\u0000\u0004\u0000\u0004"+
+		"\u0004\u0001\u0015\b\u0002\u0000\u0007\u0000\u0001\u0000\u0004\u0000\u0004"+
 		"\b\u0000\u000b\u0000\f\u0000\u0005\u0001\u0000\u0000\u0000\u0001\u0000"+
-		"\u0000\u0001\u0001\u0000\u000f\u0011\u0007\u0000\u0003\u0001\u0000\u0000"+
-		"\u0000\u0002\u0004\u0007\u0000\u0000\u0000\u0003\u0002\u0001\u0000\u0000"+
-		"\u0000\u0004\u0005\u0001\u0000\u0000\u0000\u0005\u0003\u0001\u0000\u0000"+
-		"\u0000\u0005\u0006\u0001\u0000\u0000\u0000\u0006\u0001\u0001\u0000\u0000"+
-		"\u0000\u0001\u0005";
+		"\u0000\u0001\u0002\u0000\u0001\u0002\u0010\u0014\u0007\u0000\u0003\u0001"+
+		"\u0000\u0000\u0000\u0002\u0004\u0007\u0000\u0000\u0000\u0003\u0002\u0001"+
+		"\u0000\u0000\u0000\u0004\u0005\u0001\u0000\u0000\u0000\u0005\u0003\u0001"+
+		"\u0000\u0000\u0000\u0005\u0006\u0001\u0000\u0000\u0000\u0006\u0001\u0001"+
+		"\u0000\u0000\u0000\u0001\u0005";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
