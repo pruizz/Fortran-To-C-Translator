@@ -1,6 +1,15 @@
 grammar Translator;
 
 axioma : (IDENT | NUM_INT_CONST | NUM_REAL_CONST | COMMENT | PROGRAM | END | LN)+;
+
+prg : 'PROGRAM' IDENT ';' dcllist cabecera sentlist 'END' | 'PROGRAM' IDENT subproglist ;
+dcllist : dcl* ; cabecera : | 'INTERFACE' cablist 'END' 'INTERFACE' ;
+cablist : decproc decsubprog | decfun decsubprog ;
+decsubprog : | decproc decsubprog | decfun decsubprog ;
+sentlist : sent sentlist_rest ;
+sentlist_rest: sent sentlist_rest | ;
+
+
 PROGRAM   : 'PROGRAM' ;
 END       : 'END' ;
 INTERFACE : 'INTERFACE' ;
